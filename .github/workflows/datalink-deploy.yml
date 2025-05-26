@@ -32,7 +32,7 @@ jobs:
         run: dotnet test DataLink.sln --configuration Release --no-build --verbosity normal
 
       - name: Publish deployment artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: deployment
           path: ./out
@@ -42,6 +42,6 @@ jobs:
 
     steps:
       - name: Retrieve deployment artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: deployment
