@@ -28,7 +28,7 @@ jobs:
           env: |
             [
                 {
-                "name": webapp,
-                "value": "https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/"
+                  "name": "webapp",
+                  "value": "https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/"
                 }
             ]
