@@ -56,6 +56,6 @@ jobs:
         run: |
           az webapp deploy --resource-group ${{ vars.AZURE_RESOURCE_GROUP }} \
                            --name ${{ vars.AZURE_WEBAPP_NAME }} \
-                           --src-path ./out \
+                           --src-path . \
                            --type zip
     
