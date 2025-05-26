@@ -22,8 +22,26 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore DataLink.sln
 
+      - name: Publish application
+        run: dotnet publish DataLink.sln --configuration Release --output ./out
+
       - name: Build solution
         run: dotnet build DataLink.sln --configuration Release --no-restore
 
       - name: Run tests
         run: dotnet test DataLink.sln --configuration Release --no-build --verbosity normal
+
+      - name: Publish deployment artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment
+          path: ./out
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Retrieve deployment artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: deployment
