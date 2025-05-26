@@ -42,7 +42,14 @@ jobs:
     needs: build-test
 
     steps:
+      - name: Login in to the Azure CLI
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
       - name: Retrieve deployment artifacts
         uses: actions/download-artifact@v4
         with:
           name: deployment
+
+    
