@@ -53,10 +53,15 @@ jobs:
           name: deployment
           path: ./out
 
+      - name: Zip deployment artifacts
+        run: |
+          cd out
+          zip -r ../out.zip .
+        
       - name: Deploy to Azure App Service
         run: |
           az webapp deploy --resource-group ${{ vars.AZURE_RESOURCE_GROUP }} \
                            --name ${{ vars.AZURE_WEBAPP_NAME }} \
-                           --src-path ./out \
+                           --src-path ./out.zip \
                            --type zip
-    
+
