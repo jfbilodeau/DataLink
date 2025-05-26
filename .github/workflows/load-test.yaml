@@ -20,7 +20,7 @@ jobs:
           creds: ${{ secrets.AZURE_LOADTEST_CREDENTIALS }}
 
       - name: Run Azure Load Test
-        uses: azure/load-testing@v1.1.25'
+        uses: azure/load-testing@v1.1.25
         with:
           loadtestConfigFile: './load-test/config.yaml'
           loadtestResource: 'DataLinkLoadTesting' 
