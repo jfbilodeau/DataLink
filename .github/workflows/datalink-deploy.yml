@@ -55,8 +55,8 @@ jobs:
 
       - name: Deploy to Azure App Service
         run: |
-          az webapp deploy --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
-                           --name ${{ env.AZURE_WEBAPP_NAME }} \
+          az webapp deploy --resource-group ${{ vars.AZURE_RESOURCE_GROUP }} \
+                           --name ${{ vars.AZURE_WEBAPP_NAME }} \
                            --src-path ./out \
                            --type zip
     
